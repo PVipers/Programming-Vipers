@@ -5,21 +5,18 @@ import org.jdom.*;
 
 public class StudentUnitRecordManager {
 
-private static StudentUnitRecordManager s = null; 
+private static StudentUnitRecordManager s = null;
             private StudentUnitRecordMap rm;
-    private java.util.HashMap<String,StudentUnitRecordList> ur; //hash mapping used to store student unit record list of his name
-private java.util.HashMap<Integer,StudentUnitRecordList> sr;// //hash mapping used to store student unit record list of his id
+    private java.util.HashMap<String,StudentUnitRecordList> ur;
+private java.util.HashMap<Integer,StudentUnitRecordList> sr;
     public static StudentUnitRecordManager instance() {
-        if (s == null ) 
-            s = new StudentUnitRecordManager();//new object created with s object
-        return s;//return the s
-    }
+        if (s == null ) s = new StudentUnitRecordManager(); return s;}
             private StudentUnitRecordManager() {
-        rm = new StudentUnitRecordMap(); //created a object name rm with studentunitrecordmap method
-    ur = new java.util.HashMap<>(); //created new object with private variable
-    sr = new java.util.HashMap<>();} //created new object with private variable
+        rm = new StudentUnitRecordMap();
+    ur = new java.util.HashMap<>();
+    sr = new java.util.HashMap<>();}
     public IStudentUnitRecord getStudentUnitRecord( Integer studentID, String unitCode ) {
-IStudentUnitRecord ir = rm.get(studentID.toString()+unitCode); //
+IStudentUnitRecord ir = rm.get(studentID.toString()+unitCode);
 return ir != null ? ir : createStudentUnitRecord(studentID, unitCode);}
 
     private IStudentUnitRecord createStudentUnitRecord( Integer uid, String sid ) {
@@ -51,18 +48,18 @@ public StudentUnitRecordList getRecordsByStudent( Integer studentID ) {
                 recs.add(new StudentUnitRecordProxy( new Integer(el.getAttributeValue("sid")), el.getAttributeValue("uid")));
                 if ( recs.size() > 0 ) 
                     sr.put(studentID, recs); // be careful - this could be empty
-                        return recs; //returns recs
+                        return recs;
     }
 
     public void saveRecord( IStudentUnitRecord irec ) {
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("studentUnitRecordTable").getChildren("record")) {
             if (irec.getStudentID().toString().equals(el.getAttributeValue("sid")) && irec.getUnitCode().equals(el.getAttributeValue("uid"))) {
-                el.setAttribute("asg1", new Float(irec.getAsg1()).toString()); //set the attributes of assignment
+                el.setAttribute("asg1", new Float(irec.getAsg1()).toString());
                 
                 
                 
-        el.setAttribute("asg2", new Float(irec.getAsg2()).toString());//gets ouput of assg2
-        el.setAttribute("exam", new Float(irec.getExam()).toString());//gets output of exam
+        el.setAttribute("asg2", new Float(irec.getAsg2()).toString());
+        el.setAttribute("exam", new Float(irec.getExam()).toString());
         XMLManager.getXML().saveDocument(); //write out the XML file for continuous save
         return;
 }}

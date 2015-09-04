@@ -6,6 +6,6 @@ package datamanagement;
 
 public interface IStudentLister {
 
-    public void clearStudents(); //clear the student details
-    public void addStudent(IStudent student); //add the student details
+    public void clearStudents();
+    public void addStudent(IStudent student);
 }

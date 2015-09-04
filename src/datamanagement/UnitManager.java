@@ -12,15 +12,15 @@ public class UnitManager {
 	public static UnitManager UM() {
 		if (self == null)
 			self = new UnitManager();
-		return self; //returns null value 
+		return self;
 	}
 
 	private UnitManager() {
-		UM = new UnitMap(); //new object UM created
+		UM = new UnitMap();
 	}
 
 	public IUnit getUnit(String uc) {
-		IUnit iu = UM.get(uc); //get uc to be stored in iu
+		IUnit iu = UM.get(uc);
 		return iu != null ? iu : createUnit(uc);
 
 	}

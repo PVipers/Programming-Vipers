@@ -19,69 +19,69 @@ public class Unit implements IUnit {
 		UN = un;
 		co2 = f1;
 		co1 = f2;
-		this.co4 = f3;
+		this.co4 = f3; //invoke this co4 into f3
 		co3 = f4;
 		this.co5 = f5;
-		this.setAssessmentWeights(i1, i2, i3);
+		this.setAssessmentWeights(i1, i2, i3); //invoking asessment weights to i1,i2,i3
 		rs = rl == null ? new StudentUnitRecordList() : rl;
 	}
 
 	public String getUnitCode() {
-		return this.uc;
+		return this.uc; //returns this to unit code 
 	}
 
 	public String getUnitName() {
 
-		return this.UN;
+		return this.UN; //returns this to unit name ,it returns string
 	}
 
 	public void setPsCutoff1(float cutoff) {
-		this.co2 = cutoff;
+		this.co2 = cutoff; //it invokes c02 to cutoff
 	}
 
 	public float getPsCutoff() {
-		return this.co2;
+		return this.co2;//it invokes and returns c02 value 
 	}
 
 	public void setCrCutoff(float cutoff) {
-		this.co1 = cutoff;
+		this.co1 = cutoff; //it invokes co1 to cutoff
 	}
 
 	public float getCrCutoff() {
-		return this.co1;
+		return this.co1; //it returns this to co1
 	}
 
 	public void setDiCutoff(float cutoff) {
-		this.co4 = cutoff;
+		this.co4 = cutoff; //it invokes co4 to cutoff
 	}
 
 	public float getDiCuttoff() {
-		return this.co4;
+		return this.co4;//it returns this to co4
 	}
 
 	public void HDCutoff(float cutoff) {
-		this.co3 = cutoff;
+		this.co3 = cutoff; //it invokes co3 to cutoff
 	}
 
 	public void setHdCutoff(float cutoff) {
-		this.co3 = cutoff;
+		this.co3 = cutoff;//it invokes co3 to cutoff
 	}
 
 	public float getHdCutoff() {
-		return this.co3;
+		return this.co3;//it returns this to co3
 
 	}
 
 	public void setAeCutoff(float cutoff) {
-		this.co5 = cutoff;
+		this.co5 = cutoff;//it invokes co5 to cutoff
 	}
 
 	public float getAeCutoff() {
-		return this.co5;
+		return this.co5;//it returns this to co5
 	}
 
 	public void addStudentRecord(IStudentUnitRecord record) {
-		rs.add(record);
+		rs.add(record);//add record
 	}
 
 	public IStudentUnitRecord getStudentRecord(int studentID) {

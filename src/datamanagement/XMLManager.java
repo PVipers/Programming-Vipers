@@ -13,7 +13,8 @@ private static XMLManager self = null;
 
 
         private Document doc;
-        public static XMLManager getXML() { if (self == null ) self = new XMLManager(); return self;
+        public static XMLManager getXML() { if (self == null ) self = new XMLManager();
+	return self;
 }
     private XMLManager() {init();
 
@@ -38,7 +39,7 @@ try {
 System.err.printf( "%s", "DBMD: XMLManager : init : caught JDOMException\n" );
 throw new RuntimeException("DBMD: XMLManager : init : JDOMException");} 
         catch (IOException e) {
-            System.err.printf( "%s", "DBMD: XMLManager : init : caught IOException\n" );
+            System.err.printf( "%s", "DBMD: XMLManager : init : caught IOException\n" ); //I/o exception caught 
             
             
             
@@ -46,7 +47,7 @@ throw new RuntimeException("DBMD: XMLManager : init : IOException");
         }  
                 }      
     public Document getDocument() {
-        return doc;
+        return doc; //returns the document type
     }
     
     public void saveDocument() {

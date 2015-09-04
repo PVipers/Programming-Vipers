@@ -2,17 +2,17 @@ package datamanagement;
 
 public interface IStudentUnitRecord {
 
-    public Integer getStudentID();
-    public String getUnitCode();
+    public Integer getStudentID(); //Takes Input of data
+    public String getUnitCode(); ////Takes Input of the data
 
-    public void setAsg1(float mark);
-    public float getAsg1();
+    public void setAsg1(float mark); //Takes Input of data
+    public float getAsg1();//Gives ouput of the data
 
-    public void setAsg2(float mark);
-    public float getAsg2();
+    public void setAsg2(float mark);//Takes Input of data
+    public float getAsg2();//Gives ouput of the data
 
-    public void setExam(float mark);
-    public float getExam();
+    public void setExam(float mark);//Takes Input of data
+    public float getExam();//Gives ouput of the data
 
-    public float getTotal();
+    public float getTotal();//Gives ouput of the data
 }

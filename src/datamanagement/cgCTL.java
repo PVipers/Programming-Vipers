@@ -73,7 +73,7 @@ public class cgCTL {
 		if (changed) {
 			CGUI.setState6(true);
 		}
-		return s;
+		return s; //returns string 
 	}
 
 	public void enableChangeMarks() {
@@ -93,7 +93,7 @@ public class cgCTL {
 		r.setAsg2(asg2);
 		r.setExam(exam);
 		StudentUnitRecordManager.instance().saveRecord(r);
-		CGUI.setState4(true);
+		CGUI.setState4(true); //state changed 
 		CGUI.setState5(false);
 		CGUI.setState6(false);
 	}

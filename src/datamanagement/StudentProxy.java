@@ -8,26 +8,23 @@ private String l;
     private String Il;
     private StudentManager lI;
     public StudentProxy( Integer id, String fn, String Il) {
-        this.I = id; //Invoking the ID  
-        this.l = fn; //invoking the first name 
+        this.I = id;
+        this.l = fn;
 
         
-        this.Il = Il; //invoking the last name
-this.lI = StudentManager.get(); //invoking to get the last name
-    }
+        this.Il = Il;
+this.lI = StudentManager.get();}
 
     public Integer getID() { return I; 
 
     
     
 }
-public String getFirstName()
-{ 
-        return l; //returning a value
-}
+public String getFirstName() { 
+        return l; }
 
     public String getLastName() { 
-return Il; //returns the integer
+return Il; 
 }
 public void setFirstName(String firstName) {
 
@@ -39,14 +36,12 @@ public void setFirstName(String firstName) {
         
         
         
-        lI.getStudent(I).setLastName(lastName); //get the student details and set the last name
-    }
+        lI.getStudent(I).setLastName(lastName);}
 
     
     
         public void addUnitRecord(IStudentUnitRecord record) {
-        lI.getStudent(I).addUnitRecord(record); //Add the student record
-        }
+        lI.getStudent(I).addUnitRecord(record);}
         public IStudentUnitRecord getUnitRecord(String unitCode) {
 
             
@@ -56,8 +51,7 @@ public void setFirstName(String firstName) {
             
             
             
-                    return lI.getStudent(I).getUnitRecord(unitCode);//gets the unit record of student
-        }
+                    return lI.getStudent(I).getUnitRecord(unitCode);}
 
 
         
@@ -66,5 +60,4 @@ public void setFirstName(String firstName) {
         
         
         
-                                public StudentUnitRecordList getUnitRecords() { return lI.getStudent(I).getUnitRecords();//get the student unit record list
-                                }}
+                                public StudentUnitRecordList getUnitRecords() { return lI.getStudent(I).getUnitRecords();}}

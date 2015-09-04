@@ -6,43 +6,39 @@ public class StudentManager {
     private static StudentManager self = null;
 
     
-    private StudentMap sm;
-    private java.util.HashMap<String, StudentMap> um; //Hash mapping technique was used to store values
+    private StudentMap sm;private java.util.HashMap<String, StudentMap> um;
 public static StudentManager get() {
         if (self == null) 
             
-self = new StudentManager(); //new object self created
-        return self; }
+self = new StudentManager(); return self; }
 private StudentManager() {
 
     
-            sm = new StudentMap(); //new object sm created
-        um = new java.util.HashMap<>();} //hash map was used to store the um data
+            sm = new StudentMap();
+        um = new java.util.HashMap<>();}
         public IStudent getStudent(Integer id) {
-IStudent is = sm.get(id); //Takes the input 
-    return is != null ? is : createStudent(id); 
+IStudent is = sm.get(id);
+    return is != null ? is : createStudent(id);
     }
 
 private Element getStudentElement(Integer id) {
         for (Element el : (List<Element>) XMLManager.getXML().getDocument().getRootElement().getChild("studentTable").getChildren("student")) 
             if (id.toString().equals(el.getAttributeValue("sid"))) 
-return el;
-        return null;
+return el;return null;
                 }
                 private IStudent createStudent(Integer id) {
                     IStudent is;
-        Element el = getStudentElement(id); //get the student id
+        Element el = getStudentElement(id);
         if (el != null) {
-            StudentUnitRecordList rlist = StudentUnitRecordManager.instance().getRecordsByStudent(id); //get the student details and store in list
-    is = new Student(new Integer(el.getAttributeValue("sid")),el.getAttributeValue("fname"),el.getAttributeValue("lname"),rlist); //get the student details of id,fname and lname 
+            StudentUnitRecordList rlist = StudentUnitRecordManager.instance().getRecordsByStudent(id);
+    is = new Student(new Integer(el.getAttributeValue("sid")),el.getAttributeValue("fname"),el.getAttributeValue("lname"),rlist);
 
     
     sm.put(is.getID(), is);
         return is; }
-throw new RuntimeException("DBMD: createStudent : student not in file"); //Might show exception if the student is not found
-                }
+throw new RuntimeException("DBMD: createStudent : student not in file");}
     private IStudent createStudentProxy(Integer id) {
-        Element el = getStudentElement(id); //get the student data
+        Element el = getStudentElement(id);
         
         
         
@@ -50,7 +46,7 @@ throw new RuntimeException("DBMD: createStudent : student not in file"); //Might
         
         
         if (el != null) return new StudentProxy(id, el.getAttributeValue("fname"), el.getAttributeValue("lname"));
-        throw new RuntimeException("DBMD: createStudent : student not in file");} //throws run time exception
+        throw new RuntimeException("DBMD: createStudent : student not in file");}
 
         public StudentMap getStudentsByUnit(String uc) {
         StudentMap s = um.get(uc);
@@ -61,9 +57,9 @@ throw new RuntimeException("DBMD: createStudent : student not in file"); //Might
     return s;
                 }
 
-s = new StudentMap(); //created new mapping list s
+s = new StudentMap();
 IStudent is;
-    StudentUnitRecordList ur = StudentUnitRecordManager.instance().getRecordsByUnit(uc); //records student details
+    StudentUnitRecordList ur = StudentUnitRecordManager.instance().getRecordsByUnit(uc);
         for (IStudentUnitRecord S : ur) {
             
             
@@ -74,7 +70,7 @@ IStudent is;
             
             
             
-            is = createStudentProxy(new Integer(S.getStudentID())); //get the student ID
+            is = createStudentProxy(new Integer(S.getStudentID()));
     s.put(is.getID(), is);}
     um.put( uc, s);
         return s;
